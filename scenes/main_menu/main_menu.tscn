@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://b82tf0jrqh4j5"]
+
+[ext_resource type="FontFile" uid="uid://b7us3gn5cfgtk" path="res://assets/fonts/logo.otf" id="1_0ebjn"]
+[ext_resource type="Texture2D" uid="uid://paw2q8bqe3ad" path="res://assets/textures/Image.jpg" id="1_ob46e"]
+[ext_resource type="Script" uid="uid://delhc1ery1a2k" path="res://scenes/main_menu/main_menu.gd" id="1_wem23"]
+[ext_resource type="FontFile" uid="uid://iwyri16kt0kj" path="res://assets/fonts/ui.ttf" id="2_ob46e"]
+[ext_resource type="PackedScene" uid="uid://cmqao4bhv76uh" path="res://scenes/ui/transition/transition.tscn" id="5_wem23"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("1_0ebjn")
+font_size = 87
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Control" unique_id=1919413597 node_paths=PackedStringArray("buttons", "quit_dialog", "transition")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wem23")
+buttons = {
+&"play": NodePath("RightPanel/Play"),
+&"quit": NodePath("RightPanel/Quit"),
+&"settings": NodePath("RightPanel/Settings")
+}
+quit_dialog = NodePath("RightPanel/Quit/QuitDialog")
+transition = NodePath("Transition")
+
+[node name="Image" type="Sprite2D" parent="." unique_id=1944917798]
+position = Vector2(851.00006, 226.00003)
+rotation = 0.024190597
+texture = ExtResource("1_ob46e")
+
+[node name="PanelBG" type="ColorRect" parent="." unique_id=1745357788]
+custom_minimum_size = Vector2(768, 1920)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -768.0
+offset_top = -632.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.05235988
+pivot_offset_ratio = Vector2(0.5, 0.5)
+color = Color(0, 0, 0, 1)
+
+[node name="Seporator" type="ColorRect" parent="." unique_id=105204449]
+custom_minimum_size = Vector2(16, 1920)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -632.0
+offset_right = 8.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.05235988
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="RightPanel" type="VBoxContainer" parent="." unique_id=56493543]
+layout_mode = 1
+offset_left = 55.0
+offset_top = 89.0
+offset_right = 523.0
+offset_bottom = 531.0
+theme_override_constants/separation = 45
+
+[node name="Logo" type="Label" parent="RightPanel" unique_id=588426667]
+layout_mode = 2
+text = "Nekky Blinky"
+label_settings = SubResource("LabelSettings_g4v7s")
+
+[node name="Play" type="Button" parent="RightPanel" unique_id=1353494111]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ob46e")
+theme_override_font_sizes/font_size = 63
+text = "PLAY"
+
+[node name="Settings" type="Button" parent="RightPanel" unique_id=353581079]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ob46e")
+theme_override_font_sizes/font_size = 63
+text = "settings"
+
+[node name="Quit" type="Button" parent="RightPanel" unique_id=1372275404]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ob46e")
+theme_override_font_sizes/font_size = 63
+text = "QUIT"
+
+[node name="QuitDialog" type="ConfirmationDialog" parent="RightPanel/Quit" unique_id=42850152]
+oversampling_override = 1.0
+title = "Quit..."
+position = Vector2i(0, 36)
+size = Vector2i(574, 248)
+ok_button_text = "Yes"
+dialog_text = "Are you sure you want to quit?"
+dialog_autowrap = true
+cancel_button_text = "No"
+
+[node name="Transition" parent="." unique_id=739969896 instance=ExtResource("5_wem23")]
+layout_mode = 1
+
+[connection signal="pressed" from="RightPanel/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="RightPanel/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="RightPanel/Quit" to="." method="_on_quit_pressed"]
+[connection signal="confirmed" from="RightPanel/Quit/QuitDialog" to="." method="_on_quit_dialog_confirmed"]

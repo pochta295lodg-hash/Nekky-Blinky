@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Person" format=3 uid="uid://b7aev6qd65plg"]
+
+[ext_resource type="Script" uid="uid://chbq7yep22hx0" path="res://scenes/entity/person.gd" id="1_x38v7"]
+
+[resource]
+script = ExtResource("1_x38v7")
+name = &"Nekky Blinky"
+metadata/_custom_type_script = "uid://chbq7yep22hx0"

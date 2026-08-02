@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://chksef4n8ornl"]
+
+[ext_resource type="Script" uid="uid://cd1ytmhctksbr" path="res://scenes/entity/entity.gd" id="1_t6or0"]
+[ext_resource type="FontFile" uid="uid://iwyri16kt0kj" path="res://assets/fonts/ui.ttf" id="2_l1e1h"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g4v7s"]
+radius = 60.0
+height = 200.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+radius = 60.0
+height = 200.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_yf5fn"]
+font = ExtResource("2_l1e1h")
+font_size = 64
+
+[node name="Entity" type="CharacterBody2D" unique_id=1759699797]
+script = ExtResource("1_t6or0")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=81042355]
+mesh = SubResource("CapsuleMesh_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=174732865]
+shape = SubResource("CapsuleShape2D_g4v7s")
+
+[node name="Name" type="Label" parent="." unique_id=536769486]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -179.0
+offset_right = 54.5
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Entity"
+label_settings = SubResource("LabelSettings_yf5fn")

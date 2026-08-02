@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ovpvifi2k5iw"]
+
+[ext_resource type="PackedScene" uid="uid://5j8ncwoylf7b" path="res://scenes/components/base_component/base_component.tscn" id="1_ijgh0"]
+[ext_resource type="Script" uid="uid://ddxec8anvlpdx" path="res://scenes/components/move_component/move_component.gd" id="2_lhsxl"]
+
+[node name="MoveComponent" unique_id=877484909 instance=ExtResource("1_ijgh0")]
+script = ExtResource("2_lhsxl")

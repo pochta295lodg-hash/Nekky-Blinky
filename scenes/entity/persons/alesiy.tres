@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Person" format=3 uid="uid://c37166y73k8ic"]
+
+[ext_resource type="Script" uid="uid://chbq7yep22hx0" path="res://scenes/entity/person.gd" id="1_hy542"]
+
+[resource]
+script = ExtResource("1_hy542")
+name = &"Alesiy"
+metadata/_custom_type_script = "uid://chbq7yep22hx0"
